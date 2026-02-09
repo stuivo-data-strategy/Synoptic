@@ -1,0 +1,24 @@
+{
+    "visual": {
+        "name": "synopticPanelD3",
+        "displayName": "Synoptic Panel D3",
+        "guid": "synopticPanelD3_GUID_HERE",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "A custom Synoptic Panel clone using D3.js",
+        "supportUrl": "https://github.com/microsoft/PowerBI-visuals-sampleBarChart",
+        "gitHubUrl": "https://github.com/microsoft/PowerBI-visuals-sampleBarChart"
+    },
+    "apiVersion": "5.3.0",
+    "author": {
+        "name": "User",
+        "email": "user@example.com"
+    },
+    "assets": {
+        "icon": "assets/icon.png"
+    },
+    "style": "style/visual.less",
+    "capabilities": "capabilities.json",
+    "dependencies": null,
+    "stringResources": []
+}

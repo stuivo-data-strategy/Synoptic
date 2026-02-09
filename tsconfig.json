@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "allowJs": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "target": "ES6",
+        "sourceMap": true,
+        "outDir": ".tmp/build/",
+        "moduleResolution": "node",
+        "declaration": false,
+        "lib": [
+            "es2015",
+            "dom"
+        ]
+    },
+    "files": [
+        "src/visual.ts",
+        "src/d3Renderer.ts",
+        "src/svgLoader.ts",
+        "src/types.ts"
+    ]
+}

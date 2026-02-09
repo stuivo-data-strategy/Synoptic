@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG to Power BI Converter</title>
+    <style>
+        body {
+            font-family: Segoe UI, sans-serif;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 10px;
+            font-family: monospace;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        button {
+            background-color: #0078d4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #005a9e;
+        }
+
+        .output-container {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            word-break: break-all;
+            font-family: monospace;
+            font-size: 0.9rem;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        h2 {
+            color: #0078d4;
+        }
+
+        .step {
+            margin-bottom: 2rem;
+        }
+
+        #copyStatus {
+            margin-left: 10px;
+            color: green;
+            display: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>SVG to Power BI Converter</h1>
+    <p>Use this tool to convert your SVG code into the generic "format" Power BI needs.</p>
+
+    <div class="step">
+        <h2>Step 1: Paste SVG Here</h2>
+        <div style="margin-bottom: 10px;">
+            <button onclick="pasteFromClipboard()">Paste from Clipboard</button>
+            <span id="pasteStatus" style="color: green; display: none; margin-left: 10px;">Pasted!</span>
+        </div>
+        <textarea id="inputSvg" placeholder="<svg ...> ... </svg>"></textarea>
+    </div>
+
+    <div class="step">
+        <h2>Step 2: Get Result</h2>
+        <button onclick="convert()">Convert & Copy to Clipboard</button>
+        <span id="copyStatus">Copied! Paste into Power BI.</span>
+        <div style="margin-top: 10px;">
+            <strong>Result preview:</strong>
+            <div id="output" class="output-container">...</div>
+        </div>
+    </div>
+
+    <script>
+        async function pasteFromClipboard() {
+            try {
+                const text = await navigator.clipboard.readText();
+                document.getElementById('inputSvg').value = text;
+                const status = document.getElementById('pasteStatus');
+                status.style.display = 'inline';
+                setTimeout(() => status.style.display = 'none', 2000);
+            } catch (err) {
+                alert('Could not paste automatically. Please press Ctrl+V inside the box.');
+            }
+        }
+
+        function convert() {
+            const input = document.getElementById('inputSvg').value.trim();
+            if (!input) {
+                alert("Please paste some SVG code first.");
+                return;
+            }
+
+            // Simple URL encoding (Power BI friendly)
+            // We escape specific characters that break Power BI's input field
+            let encoded = encodeURIComponent(input)
+                .replace(/'/g, "%27")
+                .replace(/"/g, "%22");
+
+            // Add the prefix
+            const dataUri = `data:image/svg+xml;utf8,${encoded}`; // Using utf8 + url encoding is standard for PBI
+
+            // Alternatively, use Base64 if the above is still flaky (uncomment to switch)
+            // const base64 = btoa(unescape(encodeURIComponent(input)));
+            // const dataUri = `data:image/svg+xml;base64,${base64}`;
+
+            // Show output
+            document.getElementById('output').textContent = dataUri.substring(0, 100) + "...";
+
+            // Copy to clipboard
+            navigator.clipboard.writeText(dataUri).then(() => {
+                const status = document.getElementById('copyStatus');
+                status.style.display = 'inline';
+                setTimeout(() => status.style.display = 'none', 3000);
+            });
+        }
+    </script>
+</body>
+
+</html>
