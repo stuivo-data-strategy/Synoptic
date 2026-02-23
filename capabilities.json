@@ -1,4 +1,5 @@
 {
+  "supportsHighlight": true,
   "dataRoles": [
     {
       "displayName": "Category",
@@ -8,6 +9,11 @@
     {
       "displayName": "Measure",
       "name": "measure",
+      "kind": "Measure"
+    },
+    {
+      "displayName": "Tooltips",
+      "name": "tooltips",
       "kind": "Measure"
     }
   ],
@@ -25,6 +31,11 @@
               "bind": {
                 "to": "measure"
               }
+            },
+            {
+              "bind": {
+                "to": "tooltips"
+              }
             }
           ]
         }
@@ -36,9 +47,123 @@
       "displayName": "Visual Settings",
       "properties": {
         "svgUrl": {
-          "displayName": "SVG URL",
+          "displayName": "SVG Source",
           "type": {
             "text": true
+          }
+        }
+      }
+    },
+    "metricColors": {
+      "displayName": "Metric Colours",
+      "properties": {
+        "threshold1": {
+          "displayName": "Threshold 1",
+          "type": {
+            "numeric": true
+          }
+        },
+        "color1": {
+          "displayName": "Colour 1",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "threshold2": {
+          "displayName": "Threshold 2",
+          "type": {
+            "numeric": true
+          }
+        },
+        "color2": {
+          "displayName": "Colour 2",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "threshold3": {
+          "displayName": "Threshold 3",
+          "type": {
+            "numeric": true
+          }
+        },
+        "color3": {
+          "displayName": "Colour 3",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "threshold4": {
+          "displayName": "Threshold 4",
+          "type": {
+            "numeric": true
+          }
+        },
+        "color4": {
+          "displayName": "Colour 4",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "threshold5": {
+          "displayName": "Threshold 5",
+          "type": {
+            "numeric": true
+          }
+        },
+        "color5": {
+          "displayName": "Colour 5",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "color6": {
+          "displayName": "Fallback/Above Max",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "dataLabels": {
+      "displayName": "Data Labels",
+      "properties": {
+        "show": {
+          "displayName": "Show",
+          "type": {
+            "bool": true
+          }
+        },
+        "fontSize": {
+          "displayName": "Text Size",
+          "type": {
+            "formatting": {
+              "fontSize": true
+            }
           }
         }
       }
@@ -49,7 +174,8 @@
       "name": "WebAccess",
       "essential": true,
       "parameters": [
-        "https://*"
+        "https://*",
+        "http://*"
       ]
     }
   ]

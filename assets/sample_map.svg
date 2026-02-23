@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" style="background-color: #f0f0f0; border: 1px solid #999;">
+  <!-- Zone A: Reception -->
+  <rect id="ZoneA" x="10" y="10" width="90" height="100" fill="#e0e0e0" stroke="#333" stroke-width="2" />
+  <text x="55" y="60" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">Zone A</text>
+  
+  <!-- Zone B: Office -->
+  <rect id="ZoneB" x="110" y="10" width="90" height="100" fill="#e0e0e0" stroke="#333" stroke-width="2" />
+  <text x="155" y="60" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">Zone B</text>
+  
+  <!-- Zone C: Warehouse -->
+  <rect id="ZoneC" x="210" y="10" width="90" height="100" fill="#e0e0e0" stroke="#333" stroke-width="2" />
+  <text x="255" y="60" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">Zone C</text>
+</svg>

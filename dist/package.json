@@ -1,14 +1,14 @@
 {
-		"version": "1.0.0.0",
+		"version": "1.0.1.2",
 		"author": {"name":"User","email":"user@example.com"},
 		"resources": [
 			{
 				"resourceId": "rId0",
 				"sourceType": 5,
-				"file": "resources/synopticPanelD3_GUID_HERE.pbiviz.json"
+				"file": "resources/s2dio_SVG_render_GUID.pbiviz.json"
 			}
 		],
-		"visual": {"name":"synopticPanelD3","displayName":"Synoptic Panel D3","guid":"synopticPanelD3_GUID_HERE","visualClassName":"Visual","version":"1.0.0.0","description":"A custom Synoptic Panel clone using D3.js","supportUrl":"https://github.com/microsoft/PowerBI-visuals-sampleBarChart","gitHubUrl":"https://github.com/microsoft/PowerBI-visuals-sampleBarChart"},
+		"visual": {"name":"s2dio_SVG_render","displayName":"s2dio SVG D3","guid":"s2dio_SVG_render_GUID","visualClassName":"Visual","version":"1.0.1.2","description":"A custom Synoptic Panel clone using D3.js","supportUrl":"https://github.com/microsoft/PowerBI-visuals-sampleBarChart","gitHubUrl":"https://github.com/microsoft/PowerBI-visuals-sampleBarChart"},
 		"metadata": {
 			"pbivizjson": {
 				"resourceId": "rId0"

@@ -105,11 +105,15 @@
         }
 
         function convert() {
-            const input = document.getElementById('inputSvg').value.trim();
+            let input = document.getElementById('inputSvg').value.trim();
             if (!input) {
                 alert("Please paste some SVG code first.");
                 return;
             }
+
+            // CLEANUP: Remove XML declaration (<?xml ... ?>) and comments (<!-- ... -->)
+            // This is important for Inkscape SVGs to work cleanly in Power BI
+            input = input.replace(/<\?xml.*?\?>/g, '').replace(/<!--[\s\S]*?-->/g, '').trim();
 
             // Simple URL encoding (Power BI friendly)
             // We escape specific characters that break Power BI's input field
